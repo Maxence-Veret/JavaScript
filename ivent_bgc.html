@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- BUTTON -->
+        <!-- changeBgc est le nom de la variable,
+        dedans on va donner le nom de la couleur u'on veut mettre. -->
+        <button onclick="changeBgc('black');">Noir</button>
+        <button onclick="changeBgc('yellow');">Jaune</button>
+        <button onclick="changeBgc('pink');">Rose</button>
+        <!-- 
+            Après activation de ce button le bgc changera de couleur par celle de la variable. 
+            parce qu'on a choisir le bgc du doc directement dans la fonction dans script.
+        -->
+
+        <!-- 
+            en mettant un name directementdans form permet d'arreter d'ecrire
+            tout le temps this.form.
+        -->
+    <form action="" name="formulaire_test">
+        <!-- Le fait d'avoir mis le this.form dans le ofocus permet
+        de recupérer les données du form. -->
+        <input 
+            type="text"
+            name="prenom"
+            id="prenom" 
+            onfocus="f(this.form)";
+            onblur="f1(this.form)";
+            onkeyup="texte(this.form)";
+            onmouseenter="mouseHover()";
+            onmouseleave="mouseLeave()";
+        >
+        
+        <output name="out"></output>
+    </form>
+
+
+    <ul>
+        <li>les objets :</li>
+        <li>window, le parent des autres objets.</li>
+        <li>location</li>
+
+    </ul>
+
+    <script>
+
+        // BUTTON
+            // là on va creer la fonction qui va à chaque fois donner pour valeur
+            // à la variale color le string qu'on a écrit dans notre button.
+            function changeBgc(color){
+                document.body.style.backgroundColor = color;
+            }
+
+        // FORM
+        function f(form) {
+            // pour recuperer les donnees il faut nommer le name qu'on a choisit
+            // La fonction permet d'avoir un bgc rouge quand on a le focus dans l'input.
+            form.prenom.style.backgroundColor = 'red';
+        }
+        function f1(form) {
+            // La fonction permet d'avoir un bgc blanc quand on a pas le focus dans l'input.
+            form.prenom.style.backgroundColor = 'white';
+        }
+        function texte(form) {
+            //pour vérifier si cela fonctionne le console.log permet quand on va dans
+            //clic droit inspecter, console. Si on tape dans le input, 
+            //cela va multiplier le coucou par le nombre de caractères rentrés.
+            console.log("coucou");
+            //premet de vopir ce que retourne ce que l'on tape dans l'input.
+            console.log(form.prenom);
+            // permet de verifier avec l'historique de la console, la valeur que l'on rentre.
+            console.log(form.prenom.value);
+
+            //permet de stocker la valeur qui sera rentré.
+            const val = form.prenom.value;
+            // permet d'afficher ce que l'on tae dans l'input.
+            // console.log(form.out);
+            // sert à recupérer la valeur tapé dans l'input pour le mettre dans le output.
+            form.out.innerText = val;
+        }
+
+        // voici une autre manière pour recuperer un name du form sans passer par les this.form.
+        //en survolant avec la souris l'input sera jaune.
+        function mouseHover() {
+            document.formulaire_test.prenom.style.backgroundColor = 'yellow';
+        }
+        function mouseLeave() {
+            // form[0] sert à recuperer le premier formulaire sans passer par le HTML.
+            //document.form[0]
+
+            // .forms est le regroupeur des formulaires de notre pages et afficher tous les tableaux qu'on a.
+            // console.log(document.forms);
+
+            //permet d'être transparent quand on a pas le focus sur l'input.
+            document.forms[0].prenom.style.backgroundColor = 'transparent';
+        }
+
+    </script>
+</body>
+</html>

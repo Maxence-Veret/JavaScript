@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .droit {
+            display: block;
+            margin-right: 10%;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Test des opérateurs élémentaires</h1>
+    <hr>
+    <h4>Entrez vos données</h4>
+
+    <form action="" name="form">
+
+        <div>
+            <label for="r1">Premier nombre réel R1 = </label>
+            <input type="number" name="r1">
+        </div>
+        <div>
+            <!-- Faire attention à pas donner un nom pas déjà utilisé comme nom d'une fonction -->
+            <input class="droit" type="button" name="calcul" value="calculer" onclick="calculer(this.form);">
+        </div>
+        <div>
+            <label for="r2">Deuxième nombre réel R2 = </label>
+            <input type="number" name="r2">
+        </div>
+
+        <h4>Résultats</h4>
+        <div>
+            <textarea cols="50" rows="5" type="text" name="res"></textarea>
+        </div>
+
+    </form>
+
+    <script>
+
+        // EXO
+
+        // var result = 0;
+
+        // function calcul(formulaire) {
+        //     formulaire.res.value = eval(formulaire.nbr1.value) + eval(formulaire.nbr2.value);
+        //     formulaire.res.value = eval(formulaire.nbr1.value) - eval(formulaire.nbr2.value);
+        //     formulaire.res.value = eval(formulaire.nbr1.value) * eval(formulaire.nbr2.value);
+        //     formulaire.res.value = eval(formulaire.nbr1.value) / eval(formulaire.nbr2.value);
+        //     formulaire.res.value = eval(formulaire.nbr1.value) % eval(formulaire.nbr2.value);  
+
+        //     result = eval(formulaire.r1.value) + eval(formulaire.r2.value);
+        //     formulaire.res.value = "Après " + result;
+        // }
+
+        // CORRECTION
+
+        function calculer(form) {
+            // le fait de mettre un plus (+) par devant le chemin de la variable indique 
+            // que ce n'est pas une chaine de caratères, mais bien un bombre.
+
+            // let r1 = +form.r1.value;
+            // const r2 = +form.r2.value;
+            //l'équivalent est :
+            let r1 = parseFloat(form.r1.value);
+            const r2 = parseFloat(form.r2.value);
+
+            // Facon de calculer sans pouvoir y rajouter de texte
+            // form.res.value = r1 + r2;
+
+            let c =r1;
+            form.res.value = toStr("+", r1 += r2);
+            r1 = c;
+            // le += sert à concatainer en plus le deuxième calcul à la suite du premier.
+            form.res.value += toStr("*", r1 *= r2);
+            r1 = c;
+            form.res.value += toStr("/", r1 /= r2);
+            r1 = c;
+            form.res.value += toStr("%", r1 %= r2);
+        }
+
+        function toStr(op, res){
+            // première solution pour faire apparaitre le texte avec les valeurs
+            // return "Après l'opération r1 " + op + "= r2, r1 a pour valeur " + res;
+            // deuxième facon d'indiquer le texte mais valable qu'à partir de ES6
+            // Le \n à la fin du return sert à faire un retour à la ligne entre chaque répétitions.
+            return `Après l'opération r1 ${op}= r2, r1 a pour valeur = ${res}\n`;
+        }
+
+    </script>
+</body>
+</html>

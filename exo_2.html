@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="formulaire">
+        <input type="text" name="op">
+        <button type="button" onclick="calcul(this.form);">Calculer</button>
+        <input type="number" name="res">
+    </form>
+
+    <script>
+        function calcul(formulaire) {
+            // Là on lui demande de calculer la valeur grave à eval() qui contient la valeur de l'imput op,
+            // tout en lui demandant que le resultat de l'input res soit égal à celui-ci.
+            //cela affichera donc le resuatat dans l'input res comme on lui aura transmis le resultat. 
+            formulaire.res.value = eval(formulaire.op.value);
+        }
+
+    </script>
+</body>
+</html>

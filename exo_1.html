@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>Document</title>
+</head>
+<body>
+
+    <form action="" name="formulaire">
+        <div>
+            <label for="nom">Entrez votre nom</label>
+            <input type="text" name="nom" id="nom">
+        </div>
+        <div>
+            <label for="email">Entrez votre adresse e-mail</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <span>Connaissez-vous Mediaforma ?</span>
+                <label for="yes">Yes</label>
+                <input type="radio" name="question" id="yes" value="yes">
+                <label for="no">No</label>
+                <input type="radio" name="question" id="yes" value="no">
+        </div>
+        <div>
+            <button>Envoyer</button>
+            <button type="button" onclick="res(this.form);">Annuler</button>
+            <!-- le type button permet que le <button> ne submit pas instentanement le form. -->
+            <button type="button" onclick="toUpper(this.form);">Majuscules</button>
+        </div>
+    </form>
+
+  <script>
+      function toUpper(formulaire) {
+          // permet de remplacer en majuscule le nom et de le garder en majusculepour apres
+          formulaire.email.value =
+          formulaire.email.value.toUpperCase();
+          
+          // permet de mettre l'email en capitales
+          email.style.textTransform ="uppercase";
+      }
+      function res(formulaire) {
+          document.forms[0].reset();
+      }
+  </script>
+
+  eval(peut calculer tout type de valeur, ecrite,nbr)
+  parseInt()
+  parseFloat(que le E des exposants qui est compris dans le calcule)
+
+</body>
+</html>

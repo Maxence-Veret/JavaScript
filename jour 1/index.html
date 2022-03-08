@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>Alors que celui-là provient de la section BODY du document HTML.</p>
+
+    <script>
+        document.write('Ce texte est écrit par une instruction JavaScript.');
+
+        //ouvre un message d'alerte avant d'acceder à la page web.
+        alert('Je suis une alerte');
+
+        /* pour un commentaire sur une seule ligne.
+
+        /*
+        pour un commentaire sur plusieurs lignes.
+        */
+
+        //cela va afficher le message quand on ira dans clic droit,
+        //inspecter, console. (pour les débugs).
+        console.log("je suis un console log");
+
+        // exemple d'une procédure
+        function carre(nbr) {
+            console.log(nbr*nbr);
+        }
+        console.log(carre(19));
+
+        //exemple d'une fonction
+        function carre(nbr) {
+            return nbr*nbr;
+        }
+        console.log(carre(16));
+        // Avec ma console de inspecter, le navigateur à lu le texte et nous 
+        // permet de venir retaper la fonction dans la console directement.
+
+            //pour ne pas calculer directement un nombre dans la lecture de la page,
+            //on peut definir par défaut une valeur à la variable de notre fonction.
+            function carre(nbr = 1) {
+                return nbr*nbr;
+            }
+            console.log(carre());
+
+            //Dans ce cas le (typeof nbr) sert à vérifier de quel type
+            // est la valeur de nbr et dans ce cas il renverra STRING.
+            function carre(nbr = 1) {
+                console.log(typeof nbr);
+                return nbr*nbr;
+            }
+            //là il renvera STRING pour une chaine de caractères.
+            console.log(carre("AZ"));
+            //dans ce cas il arrivera à lire le nombre à l'interieur des parenthèses et le type NUMBER.
+            console.log(carre("12"));
+
+         //on donne une valeur qu'à l'une des deux variables et l'autre sera indefinie.
+        function testParam(a = 2, b){
+            console.log(a, b);
+        }
+        //là la valeur de a sera remplacé par 10 mais pas b car, car sa valeur n'est pas précisé.
+        testParam(10);
+
+        //Dans ce ca si c'est b à qui l'on doit donner une valeur
+        // alors penser à le définir en premier dans la fonction.
+        function testParam(b, a = 2){
+            console.log(b, a);
+        }
+        //là la valeur sera donné à b et a gardera la valeur de 2.
+        testParam(10);
+
+
+        //Ancienne facon de déclarer une variable 
+            var v1 = "coucou";
+            //derenavant l'on utilise :
+            let v2;
+
+            //le const creer une variable qui ne pourra pas etre modifiée.
+            const v3 = 13;
+            // Se sont les trois mots clés pour créer des variables.
+
+            // Si l'on place un const ou un let dans des accolades {}
+            // on ne pourra pas appeler les fonctions du dessus.
+
+    </script>
+    <!-- <script src"monJavaScript.js" ></script>, pour faire appel à un autre document qui contiendrait notre js. -->
+</body>
+</html>
