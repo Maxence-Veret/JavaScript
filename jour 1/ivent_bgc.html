@@ -77,7 +77,7 @@
 
             //permet de stocker la valeur qui sera rentré.
             const val = form.prenom.value;
-            // permet d'afficher ce que l'on tae dans l'input.
+            // permet d'afficher ce que l'on a dans l'input.
             // console.log(form.out);
             // sert à recupérer la valeur tapé dans l'input pour le mettre dans le output.
             form.out.innerText = val;
@@ -85,9 +85,11 @@
 
         // voici une autre manière pour recuperer un name du form sans passer par les this.form.
         //en survolant avec la souris l'input sera jaune.
+        // grace au onmouseenter="mouseHover()"; 
         function mouseHover() {
             document.formulaire_test.prenom.style.backgroundColor = 'yellow';
         }
+        // grace au onmouseleave="mouseLeave()";
         function mouseLeave() {
             // form[0] sert à recuperer le premier formulaire sans passer par le HTML.
             //document.form[0]

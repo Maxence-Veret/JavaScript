@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // LES BOUCLES 
+
+        for (let i = 0 ; i < 20 ; i++) {
+            // le continue va faire retourner la fonction à l'auto incrémentation tout en affichant
+            // pas les multiples de trois comme l'on a pas demandé de les afficher dans le if.
+            if (i % 3 === 0){
+                continue;
+            }
+            //là le break fait s'arreter le if lorsqu'il rencontre le nombre 17 et s'arretera à 16.
+            if(i === 17){
+                break;
+            }
+            document.write(`<h4>${i}</h4>`);
+
+        // LES TABLEAUX
+
+            //Manière de créer un tableau en javaScript
+            const tab1 = ["sam", "herve", "sab", "anto"];
+
+            for (let i = 0 ; i < tab1.length ; i++){
+                // mettre un ln après le wrtite pour mettre un petit expace entre les éléments du tableau.
+                document.writeln(tab1[i]);
+            }
+
+            // on creer une variable qui va venir stocker les valeurs du tableau en elle.
+            for (const prenom of tab1) {
+                document.writeln(prenom);
+            }
+
+            // quand on creer une variable avec des accolades, c'est pour creer un objet.
+            const p1 = {
+                // une clé (nom), deux point (:), puis la valeur ("michaux").
+                nom: "michaux",
+                prenom: "samuel",
+                age: 20,
+                hobbies: ["moto", " informatique", " voyage"],
+                femme: false
+            };
+
+            // l'objet est créée et dans ce cas nous sert à afficher la clé (prenom).
+            document.writeln(p1.prenom);
+
+            for (const k in p1) {
+                document.writeln(`Key : ${k} - Value : ${p1[k]}<br>`);
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

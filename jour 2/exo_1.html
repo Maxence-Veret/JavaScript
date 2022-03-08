@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+
+        <!-- Le max et le min servent à quantifier le nom de lettres qu'on pourra saisir dans l'input -->
+        <input type="text" name="letter" id="letter"
+        minlength="1"
+        maxlength="1"
+        onkeyup="minOuMaj(this.form);">
+        <!-- L'événement onkeyup se produit lorsque l'utilisateur relâche une touche (sur le clavier), -->
+        <!-- couplé à la fonction minOuMaj, dès la lettre tapé, il y aura une réponse de la fonction. -->
+
+        <!-- Juste une div est créé pour y un mettre balise <p> dynamique  -->
+        <div id="res"></div>
+
+    </form>
+
+    <script>
+
+        const res = document.getElementById('res');
+
+        function minOuMaj(f) {
+            const letter = f.letter.value;
+            if (letter >= "a" && letter <= "z"){
+                // le .innerHTML sert à faire apparaitre de façon
+                // dynamique le texte si la réponse est correcte à l'inérieur de la div .res.
+                res.innerHTML = '<p>C\'est une lettre minuscule</p>';
+            }else if (letter >= "A" && letter <= "Z"){
+                res.innerHTML = '<p>C\'est une lettre majuscule</p>';
+            }else {
+                res.innerHTML = '<p>Ce n\'est pas une lettre</p>';
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

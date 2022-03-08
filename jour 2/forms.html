@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <div>
+            <input type="checkbox" name="cgv" onclick="checkbox(this);">
+        </div>
+        <div>
+            <input type="radio" name="civ" value="m">
+            <input type="radio" name="civ" value="mme">
+        </div>
+        <div>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <select name="ville">
+                <option value="fr">France</option>
+                <option value="be">Belgique</option>*
+                <option value="ch">Suisse</option>
+            </select>
+        </div>
+    </form>
+
+    <script>
+        // là pour vérifier les types et les valeurs qui sont déclanchées dans la console.
+        function checkbox(input) {
+            console.log(input.checked);
+            console.log(input.defaultChecked);
+            console.log(input.name);
+            console.log(input.value);
+        }
+
+        //on va faire ecouter nos informations
+        // 1er paramètre du listener -> le type d'événement -> collback (ce qu'il va faire)
+        //il va lire les infos du form puis il ava detecter dans cet exemple qu'il faut attendre un clic
+        // et une fois que celui ci de sera survenue, il renverra un console.log d'infos.
+        // document.forms[0].name.addEvenListener('click', function (event) {
+        //     console.log(event);
+        // })
+
+        // Autre manière de l'écrire.
+        function inputName(event) {
+            console.log(event.target.value);
+        }
+
+    /*
+        autre manière d'écrire
+        const inputName = function (event){
+            console.log(event.target.value);
+        }
+    */
+
+    /*
+        autre manière d'écrire
+        const inputName = (event) => {
+            console.log(event.target.value);
+        }
+    */
+        
+        document.forms[0].name.addEventListener('click', inputName);
+        // comme autre changement que 'click', il y a :
+        // le 'change'mais ne fonctionne que sur le select, 
+        // le 'keyup'(appelle à chaque touches tapées,l'imput name)
+
+
+        // en JavaScript le code est entièrement lu avant d'être exécuté ce qui permet,
+        // de lire une fonction même s'il celle-ci apparait avant son paramètrage juste en dessous d'elle.
+        test();
+
+        function test(){
+            console.log("test");
+        }
+
+
+        //là la variable doit être définie avant d'être éxécuté sous peine d'être inconnue.
+        var varTest = "test 2";
+        console.log(varTest);
+
+    </script>
+</body>
+</html>
