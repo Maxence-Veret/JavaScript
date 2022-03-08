@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <ul id="liste"></ul>
+    </div>
+    <button onclick="history.back();">Précédent</button>
+    <script>
+        // location es un enfant de window mais window n'est pas obligé d'être écrit.
+        console.log(location);
+        // permet de rediriger instantanement vers l'url tapé entre ''.
+        // location.href = 'https://www.google.fr/';
+
+
+        const liste = document.getElementById('liste');
+
+        //le debugger ne marche que dans Open in browser de VS CODE.
+        // quand le menu debugger est activé, cela va ouvrir la console de débuggage dans 
+        // clic droit inspecter de la page web. 
+        // avec l'option de la fleche arrondie en dessous du code, on peut se deplacer entre les lignes
+        // et cela affcihera au fur et à mesure le code.
+        debugger;
+
+    // 1er manière d'afficher la liste
+        // liste.innerHTML = `<li>Protocol : ${location.protocol}</li>`;
+        // liste.innerHTML += `<li>HostName : ${location.hostname}</li>`;
+        // liste.innerHTML += `<li>Port : ${location.port}</li>`;
+        // liste.innerHTML += `<li>Pathname : ${location.pathname}</li>`;
+
+    // 2eme manière d'afficher la liste
+        liste.innerHTML = `
+        <li>Protocol : ${location.protocol}</li>
+        <li>HostName : ${location.hostname}</li>
+        <li>Port : ${location.port}</li>
+        <li>Pathname : ${location.pathname}</li>`;
+
+        console.log(history);
+
+    // 3eme manière
+        // on lui demande de creer un li
+        // const li = document.createElement('li');
+        // li.innerHTML = "Protocol : " + location.protocol;
+        // li.className = "test sam";
+        // liste.append(li);
+    </script>
+</body>
+</html>

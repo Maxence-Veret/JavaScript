@@ -18,15 +18,18 @@
             <input type="text" name="name">
         </div>
         <div>
-            <select name="ville">
+            <select name="ville" onchange="select(this);">
                 <option value="fr">France</option>
-                <option value="be">Belgique</option>*
+                <option value="be" selected>Belgique</option>
                 <option value="ch">Suisse</option>
             </select>
         </div>
     </form>
 
     <script>
+
+    // CHECKBOX
+    
         // là pour vérifier les types et les valeurs qui sont déclanchées dans la console.
         function checkbox(input) {
             console.log(input.checked);
@@ -48,6 +51,22 @@
             console.log(event.target.value);
         }
 
+    // SELECT
+
+        function select(s){
+            //nous renvoie le select complet.
+            console.log(s);
+            // nous renvoie la valeur.
+            console.log(s.value);
+            // nous renvoie la valeur par defaut.
+            console.log(s.selectedIndex);
+            // nous renvoie toutes les valeurs comprises dans le select.
+            console.log(s.innerText);
+            console.log(s.options[s.selectedIndex]);
+        }
+
+
+// INPUT TEXT A SASIIR
     /*
         autre manière d'écrire
         const inputName = function (event){
