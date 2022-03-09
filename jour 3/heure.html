@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* On écrit ca pour réinitialier tout le CSS qui était appliqué dans le fichier créé de base. */
+        *, ::before, ::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    /* vh= viewportHeight ce qui vaut à appliquer la hauteur de base au navigateur sur lequel on est.   */
+            height: 100vh;
+            background-color: #333;
+            color: #ddd;
+        }
+
+        p {
+    /* vw= viewWidth ce qui vaut à appliquer une valeur en pourcentage sur la largeur de base du navigateur */
+            font-size: 17vw;
+        }
+    </style>
+</head>
+<body>
+
+    <p>
+        <span id="hour"></span> :
+        <span id="minute"></span> :
+        <span id="second"></span>
+    </p>
+
+    <script>
+        const hourSpan = document.getElementById('hour');
+        const minuteSpan = document.getElementById('minute');
+        const secondSpan = document.getElementById('second');
+
+    // 1er manière d'afficher un timer sans être optimisé.
+
+        // function getTime() {
+        //     const date = new Date();
+        //     // On utilise .toString pour convertir le getHours qui est un number en chaine de caratères
+        //     // pour correspondre dans le même type que innerText.
+        //     hourSpan.innerText = inf10TwoChar(date.getHours().toString());
+        //     minuteSpan.innerText = inf10TwoChar(date.getMinutes().toString());
+        //     secondSpan.innerText = inf10TwoChar(date.getSeconds().toString());
+        // }
+
+
+    //2eme manière d'afficher un timer plus optimisé.
+
+        function getTime() {
+            const date = new Date();
+            // avec la boucle if on va lui demander de vérifier que si l'heure ne change pas dans le 
+            // comptage, et bien de ne pas le refaire refaire charger afin que le calcul soit optimisé.
+            if (hourSpan.innerText !== inf10TwoChar(date.getHours())) {
+                hourSpan.innerText = inf10TwoChar(date.getHours().toString());
+            }
+            if (minuteSpan.innerText !== inf10TwoChar(date.getMinutes())){
+                minuteSpan.innerText = inf10TwoChar(date.getMinutes().toString());
+            }
+            secondSpan.innerText = inf10TwoChar(date.getSeconds().toString());
+        }
+
+        function inf10TwoChar(date) {
+            // si la date est inférieur à 10 et que l'on qu'un chiffre, on lui dit de rajouter le 0.
+            // sinon ( : ) on affiche la date en chaine de caractères.
+            return date < 10 ? `0${date}` : date.toString();
+        }
+
+        // 1er manière d'afficher le temps avec la fonction.
+        //getTime();
+
+        // 2eme manière d'afficher le temps avec la fonction.
+        // ne pas oublier de mes les millisecondes sinon le pc risque de ramer, parce qu'il rappel
+        // à chaque fois le temps.
+        setInterval(getTime, 1000);
+    </script>
+</body>
+</html>

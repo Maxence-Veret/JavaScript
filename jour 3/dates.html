@@ -8,7 +8,7 @@
     <script>
 
         // pour le getDay comme cela marche comme un tableau le premier mois commence à [0].
-        // et le premier jour commence à zéro lui aussi.
+        // et le premier jour commence à zéro lui aussi [Lundi, mardi, etc...].
         // faire attention à bien écrire les dates en prenant en conscience le démarage à [0].
         print(new Date());
         print(new Date().getDay());
@@ -20,6 +20,21 @@
         // et c'est pareil avec le .set...
         //print(new Date(2022, 2, 13).get);
         // print(new Date(2022, 2, 13).set);
+
+         const age = new Date() - new Date(1981, 6, 9);
+         print(age);
+         // Cela sert à tronquer le résultat après deux chiffres la virgule (0.99);
+         print(Math.floor(milliToYear(age)));
+        
+        // on creer une fonction qui calculer la date en multipliant le nombre en millisecondes
+        // par les millisecondes, secondes, minutes, heures, jours.
+        // On lui retourne la valeur de milli qui est celle de la variable age divisé par la const
+        //de la fonction pour afficher le résultat au dessus en dateTime. 
+        function milliToYear(milli) {
+            const oneYear = 1000 * 60 * 60 * 24 * 365.25;
+            return milli / oneYear;
+        }
+
 
         // les trois petits points représentent le principe ellipsis.
         // cette technique permet de ne pas à avoir à utiliser un print([1, 2]) avec un tableau

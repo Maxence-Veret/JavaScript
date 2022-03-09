@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        // faire attention la variable doit être un let et pas un const sinon ça ne pourra pas s'afficher.
+        let texte =
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptatem, hic, reprehenderit aliquam, commodi recusandae iusto sapiente suscipit in facere laborum necessitatibus quae eius quos quasi. Est exercitationem eveniet repudiandae?';
+    
+        document.writeln(texte.length.toString() + "<br>");
+        // On lui demande grace à la methode substring(min, max) de renvoyer que la partie de texte 
+        // qu'on a définit. le min donc la première lettre commence à zéro.
+        document.writeln(texte.substring(0, 10) + "<br>");
+        document.writeln(texte.substring(6, 11) + "<br>");
+        // On lui demande de retirer que la lettre indiqué à la 6eme position du texte.
+        document.writeln(texte.charAt(6) + '<br>');
+        // document.writeln(texte.toLocaleUpperCase() + "<br>");
+        // document.writeln(texte.toLocaleLowerCase() + "<br>");
+
+        // On demande de stocker une chaine e caractère que l'on aura découpé grace à .split()
+        const sp = texte.split(" ");
+        // On obtiendra un tableau composé du texte découpé par mot sans être reliés.
+        for (let i = 0; i < sp.length ; i++) {
+            // on lui demande de récupérer le permier élément là c'est la première lettre du texte.
+            // Puis on lui demande de la mettre en capitale.
+            // puis  tu viendras reconcatainer à partir de l'élément 1.
+            sp[i] = sp[i].charAt(0).toLocaleUpperCase() + sp[i].substring(1);
+        }
+        // puis tu lui demande de reremplir le tableau créé précédement avec les nouvelles valeurs.
+        texte = sp.join(" ");
+        document.writeln(texte + "<br>");
+
+    </script>
+</body>
+</html>

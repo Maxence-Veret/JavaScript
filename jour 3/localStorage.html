@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //LOCALSTORAGE
+        document.writeln(localStorage.length + "<br>");
+        //set sert à modifier un élément et comporte la clé et enseuite la valeur.
+        // localStorage.setItem('title', 'Test Local Storage');
+        // en allant dans open in browser, aller dans clic droit, inspecter, application (dans la barre ou
+        // il y a élément) descendre dans strorage, cliquer sur le fichier du dossier.
+        // et à l'intérieur on aura accès à la "base de donnée de chaine de caractères".
+        localStorage.setItem('age', "30");
+        const prenoms = ["sam", "imane", "thmas", "laurent"];
+        // localStorage.setItem('prenoms', prenoms);
+
+        // On va lui demander de transformer une chaine de carac en objet avec JSON.stringify().
+        localStorage.setItem('prenoms', JSON.stringify(prenoms));
+
+        //On utilise le getItem car on souhaite récupérer une liste d'éléments.
+        const listPrenom = localStorage.getItem('prenoms');
+        listPrenom = JSON.parse(listPrenom);
+        document.write(typeof listPrenom);
+        // Pour effacer la base de caine de carac, il faut écrire.
+        //localStorage.clear();
+
+
+    //SESSIONSTORAGE
+        sessionStorage.setItem("sessionID", "Je ne suis pas");
+    </script>
+</body>
+</html>

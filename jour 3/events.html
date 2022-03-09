@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    title>Document</title>
+</head>
+<body>
+<!-- <body onload="chargement();" onunload="dechargement();" onresize="redimenssionner();"> -->
+
+    <!-- Picsum est un site de banque d'image gratuit qui premet de les générer dans le code html. -->
+    <img src="https://picsum.photos/3000" alt="">
+
+    <a href="https://www.google.fr">Google</a>
+
+    <script>
+        function chargement(){
+            document.writeln("document chargé : <a href=\"https://www.google.fr\">Google</a>");
+        }
+
+        function dechargement() {
+            alert('veux-tu quitter le site ?');
+        }
+
+        function redimenssionner() {
+            document.writeln(document.body.clientWidth + ' ' + document.body.clientHeight);
+        }
+        window.addEventListener('resize', redimenssionner);
+    </script>
+</body>
+</html>
