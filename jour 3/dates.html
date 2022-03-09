@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // pour le getDay comme cela marche comme un tableau le premier mois commence à [0].
+        // et le premier jour commence à zéro lui aussi.
+        // faire attention à bien écrire les dates en prenant en conscience le démarage à [0].
+        print(new Date());
+        print(new Date().getDay());
+        print(new Date().getMonth());
+        print(new Date().getDate());
+        print(new Date(2022, 2, 13));
+
+        // Le .get... permet de rajouter une valeur en choisissant quel donnée précisement,
+        // et c'est pareil avec le .set...
+        //print(new Date(2022, 2, 13).get);
+        // print(new Date(2022, 2, 13).set);
+
+        // les trois petits points représentent le principe ellipsis.
+        // cette technique permet de ne pas à avoir à utiliser un print([1, 2]) avec un tableau
+        // à l'intérieur ou il faut definir les valeurs. 
+        // et permet d'écrire comme ça print(1, 2) et cela créera un tableau directement.
+        function print(...str) {
+            console.log(str);
+            document.writeln(str + "<br>");
+        }
+    </script>
+</body>
+</html>

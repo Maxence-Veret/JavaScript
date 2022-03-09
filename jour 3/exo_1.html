@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        ul {
+        list-style-type: none;
+        }
+        .bt{
+            height: 30px;
+        }
+        .it {
+            height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bienvenue dans l'exercice du Jour 3</h1>
+    <hr>
+    <form action="">
+        <div class="container">
+            <!-- autofocus sert à avoir le focus dans la saisie de l'input dès l'entrée sur la page. -->
+            <input class="it" autofocus type="text" name="data">
+            <button class="bt" type="button" onclick="validate(this.form)">Ajouter la tâche</button>
+            <!-- Le button type="buttonReset" sert à effacer toutes les saisir faites dans le form. -->
+            <button class="bt" type="buttonReset">Supprimer</button>
+            <div>
+                <ul id="todoList"></ul>
+            </div>
+        </div>
+    </form>
+
+    <script>
+
+        // on met le (form) pour recuperer les infos saisies dans le input.
+        function validate(form) {
+
+            // on va stocker dans la constante nommé grace à l'élément 
+            // getElementById(nous retourne une chaine de caractères)
+            // une liste dynamique des valeurs saisies grace au (+=) qui ajouter à la suite.
+            const liste = document.getElementById('todoList');
+
+            liste.innerHTML += `<li>${form.data.value}</li>`;
+
+            // cette ligne permet de reset l'input après l'avoir validé avec le button.
+            form.data.value = '';
+
+            // là la methode focus() permet de garder le focus sur l'input après la validation.
+            form.data.focus();
+
+        }
+
+    </script>
+</body>
+</html>
