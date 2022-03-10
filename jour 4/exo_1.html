@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="birthday">Date d'anniversaire</label>
+            <input type="date" name="birthday" id="birthday" onchange="anniversaire(this.form);">
+        </div>
+    </form>
+    
+    <div id="res"></div>
+    <script>
+
+        // on déclare la variable du resltat d'avance.
+        const res = document.getElementById('res');
+
+        function anniversaire(form) {
+            // on stock la value dans une method new Date() dans une constante.
+            const birthday = new Date(form.birthday.value);
+            const today = new Date();
+
+            // on creer une variable qui va juste stocker le mois.
+            const bMonth = birthday.getMonth();
+            // on creer une variable qui va juste stocker le jour.
+            const bDay = birthday.getDate();
+
+            // on va faire s'afficher les deux variables créées précédement dans la console de inspecter.
+            console.log(bMonth, bDay);
+            console.log(today);
+
+            // on creer une variable aussi pour les mois et la date d'aujourd'hui.
+            const tMonth = today.getMonth();
+            const tDay = today.getDate();
+
+            console.log(bM, bD);
+
+            // on soustrait les mois et les jours de la date voulue et de celle d'aujourd'hui
+            // pour obtenir la diférence et ainsi obtenir le nombre de mois et de jours qu'il reste.
+            let diffMonth = bMonth - tMonth;
+            const diffDay = bDay - tDay;
+            
+            if (diffMonth === 0 && diffDay < 0) {
+                diffMonth = 11;
+                res.innerHTML = `<h1>C'est dans plus de ${diffMonth} mois. Tu as le temps. Et bon anniversaire en retard.</h1>`
+            } else if (diffMonth === 0 && diffDay === 0) {
+                res.innerHTML = `<h1>Happy BirthDay</h1>`
+            } else if (diffMonth === 0 && diffDay > 0) {
+                res.innerHTML = `<h1>C'est dans ${diffDay} jours.</h1>`
+            } else if (diffMonth === 1 && diffDay < 0) {
+                res.innerHTML = `<h1>C'est dans moins d'un mois.</h1>`
+            } else if (diffMonth > 0 && diffDay === 0) {
+                res.innerHTML = `<h1>C'est dans ${diffMonth} mois tout juste.</h1>`
+            } else if (diffMonth > 0 && diffDay > 0) {
+                res.innerHTML = `<h1>C'est dans ${diffMonth} mois et dans ${diffDay} jours.</h1>`
+            } else if (diffMonth > 0 && diffDay < 0) {
+                res.innerHTML = `<h1>C'est dans un peu plus d'${diffMonth - 1} mois</h1>`
+            }
+}
+    </script>
+</body>
+</html>

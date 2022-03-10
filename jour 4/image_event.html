@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* Quand on passe sa souris sur l'image, elle s'agrandira de 1.5 fois */
+        /* img:hover{
+            transform: scale(1.5);
+        } */
+    </style>
+</head>
+<body>
+    <figure>
+        <!-- On fait appel à une banque d''image et on demande sa taille.' -->
+        <img src="https://picsum.photos/200" alt="photo" id="photo">
+    </figure>
+
+    <!-- On paramètre différents buttons qui vont appliquer methodes sur l'image -->
+    <div>
+        <button id="scale-down">Rétrécir</button>
+        <button id="scale-up">Agrandir</button>
+        <button id="scale-zero">retour à l'origine</button>
+        <button id="move-right">Déplacer à droite</button>
+        <button id="none">Cacher</button>
+        <button id="block">Afficher</button>
+    </div>
+
+    <!-- on fait appel à notre fichier de script js. -->
+    <script src="image_event.js"></script>
+</body>
+</html>
