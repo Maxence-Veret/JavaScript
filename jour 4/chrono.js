@@ -18,7 +18,7 @@ let isStart = false;
 let isStop = false;
 
 btnStart.addEventListener('click', () => {
-        if (!isStart) {
+        if (isStart) {
 
             console.log(countMilli, countSecond, countMinute);
             liste.innerHTML += `<p>${oneToTwo(countMinute)} : ${oneToTwo(countSecond)} : ${oneToTwo(countMilli)}</p>`;
