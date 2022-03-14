@@ -4,6 +4,7 @@ const second = document.querySelector('#chrono span:nth-child(2)');
 const milli = document.querySelector('#chrono span:nth-child(3)');
 
 const btnStart = document.getElementById('btn-start');
+const choiceMilli = document.getElementById('choiceMilli');
 const btnStop = document.getElementById('btn-stop');
 
 const liste = document.querySelector('.liste');
@@ -17,45 +18,69 @@ let interval = 0;
 let isStart = false;
 let isStop = false;
 
-btnStart.addEventListener('click', () => {
-        if (isStart) {
+//@ts-ignore
+let intervalMilli = parseInt(choiceMilli.value);
 
-            console.log(countMilli, countSecond, countMinute);
-            liste.innerHTML += `<p>${oneToTwo(countMinute)} : ${oneToTwo(countSecond)} : ${oneToTwo(countMilli)}</p>`;
-            
-        }else {
-            interval = setInterval( () => {
-                if (!isStart) {
-                    isStart = true;
-                }
-                countMilli += 60;
-                logiqueCompteur();
-                remplissageHtml();
-                // console.log(countMilli, countSecond, countMinute);
-            }, 60);
-            btnStart.innerHTML = "Stop";
-            btnStop.innerHTML = "Stop";
-            isStop = false;
-        }
-});
+const startInterval = () => {
+    if (isStart) {
+        liste.innerHTML += `<p>${oneToTwo(countMinute)} : ${oneToTwo(countSecond)} . ${oneToTwoMilli(countMilli)}</p>`;
+    } else {
+        choiceMilli.setAttribute('disabled', 'true');
+        interval = setInterval(()=>{
+            if (!isStart) {
+                isStart = true;
+            }
+            countMilli += intervalMilli;
+            logiqueCompteur();
+            remplissageHtml();
+        }, intervalMilli);
 
-btnStop.addEventListener('click', () => {
-    if (isStop){
+        btnStart.innerHTML = "Step";
+        btnStop.innerHTML = "Stop";
+        isStop = false;
+    }
+};
+
+const stopInterval = () => {
+    choiceMilli.removeAttribute('disabled');
+    if (isStop) {
         milli.innerHTML = "000";
         second.innerHTML = "00";
         minute.innerHTML = "00";
+
+        countMilli = 0;
+        countSecond = 0;
+        countMinute = 0;
 
         liste.innerHTML = "";
 
         btnStop.innerHTML = "Stop";
         btnStart.innerHTML = "Start";
-    }else {
+    } else {
         clearInterval(interval);
         remplissageHtml();
-        isStart =false ;
+        isStart = false;
         btnStart.innerHTML = "Restart";
         isStop = true;
         btnStop.innerHTML = "Reset";
+    }
+};
+
+btnStart.addEventListener('click', startInterval);
+
+btnStop.addEventListener('click', stopInterval);
+
+// si on a qu'un seul paramètre on est pas obligé de mettre des parenthèses
+choiceMilli.addEventListener('change', (e) => {
+    //@ts-ignore
+    intervalMilli = parseInt(e.target.value);
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.code === "Space") {
+        startInterval();
+    }else if (e.code === "KeyA"){
+        stopInterval();
     }
 });
 
@@ -68,15 +93,15 @@ function logiqueCompteur() {
         countSecond = 0;
         countMinute++;
     }
-    if (countMinute >= 60){
+    if (countMinute >= 60) {
         countMilli = 0;
         countSecond = 0;
         countMinute = 0;
     }
 }
 
-function oneToTwo(num){
-    return num < 100 && num > 9 ? `0${num}` : num.toString();
+function oneToTwo(num) {
+    return num < 10 ? `0${num}` : num.toString();
 }
 
 function oneToTwoMilli(num) {
@@ -84,20 +109,22 @@ function oneToTwoMilli(num) {
         return `00${num}`;
     }else if (num < 100) {
         return `0${num}`;
-    }else {
+    }else{
         return num.toString();
     }
 }
 
 function remplissageHtml() {
     milli.innerHTML = oneToTwoMilli(countMilli);
-
+    
     if (second.innerHTML !== oneToTwo(countSecond)){
-    second.innerHTML = oneToTwo(countSecond);
+        second.innerHTML = oneToTwo(countSecond);
     }
     if (minute.innerHTML !== oneToTwo(countMinute)){
-    minute.innerHTML = oneToTwo(countMinute);
+        minute.innerHTML = oneToTwo(countMinute);
     }
 }
 
 remplissageHtml();
+
+// sur coding game c'est un site qui donne des exos de programmation des jeux.
