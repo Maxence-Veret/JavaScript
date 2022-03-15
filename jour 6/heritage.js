@@ -5,6 +5,7 @@ class Mammifere {
     }
 }
 
+
 // Avec heritage.
 class Homme extends Mammifere {
     constructor(nom, taille) {
@@ -24,6 +25,7 @@ class Homme extends Mammifere {
 //     }
 // }
 
+
 // Avec heritage.
 class Singe extends Mammifere {
     constructor(nom, taille) {
@@ -38,6 +40,7 @@ class Singe extends Mammifere {
 //         this.taille = taille;
 //     }
 // }
+
 
 console.log(new Singe("Singe", 150));
 console.log(new Homme("Homme", 170).conduire());
