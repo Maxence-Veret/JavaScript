@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,900;1,300;1,700&display=swap');
+
+main {
+    float: right;
+    text-align: center;
+    width: 70%;
+    height: 100%;
+    position: relative;
+    /* vertical-align: middle; */
+}
+
+nav {
+    float: left;
+    width: 30%;
+    height: 100%;
+    background-color:rgb(70, 156, 253) ;
+    text-align: center;
+    display: table;
+    position: absolute;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.search {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.search2 {
+    margin-left: 50px;
+    height: 30px;
+    width: 300px;
+    border-radius: 15px;
+    border: solid 0px;
+    background-color: white;
+    padding-top: 15px;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.411);
+
+}
+
+input {
+    /* border-radius: 15px; */
+    border: solid 0px;
+    height: 20px;
+    border: none;
+    outline: none;
+}
+
+button {
+    border-radius: 15px;
+    border: solid 0px;
+    width: 100px;
+    height: 20px;
+    color: white;
+    background-color: rgb(58, 58, 255);
+    box-shadow: 1px 3px 3px rgba(58, 58, 58, 0.411);
+}
+
+li {
+    list-style-type: none;
+}
+
+/* div.deg {
+    le site : https://bennettfeely.com/clippy/ sert à paramétrer des formes en CSS.
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+} */
+
+
+/* div.soleil {
+    width: 100px;
+} */
+
+div#weather {
+    /* text-align: center;
+    display: block;
+    width: 700px;
+    height: 400px;
+    background-color: beige; */
+    
+}

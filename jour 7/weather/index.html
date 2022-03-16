@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="main.js" type="module">
-        // ne pas oublier le type="module" pour que nos scryptes fonctionnent.
-    </script>
+<nav>
+    <div class="search">
+        <div class="search2">
+            <input type="search" id="city" placeholder="Choisir une ville">
+            <button id="btn_search">Rechercher</button>
+        </div>
+	</div>
+</nav>
+
+<main>
+	<div id="weather"></div>
+</main>
+
+<script src="main.js" type="module"></script>
+<!-- ne pas oublier le type="module" pour que nos scryptes fonctionnent. -->
 </body>
 </html>

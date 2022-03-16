@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\beer_api\\main.js"
+            "program": "${workspaceFolder}\\jour 8\\login\\login_service.js"
+            //"program": "${workspaceFolder}\\jour 7\\beer_api\\beer_model.js"
         }
     ]
 }

@@ -7,7 +7,7 @@ export class WeatherModel {
         this.temperatureMin = 0;
         this.temperatureMax = 0;
         this.temperatureRessenti = 0;
-        this.humidity = 0;
+        this.humidite = 0;
         this.ventVitesse = 0;
         this.ventDegre = 0;
         this.soleilLeve = 0;
