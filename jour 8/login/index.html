@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
      <title>Document</title>
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="">
-        <input id="name" type="text" placeholder="nom">
-        <input id="mdp" type="text" placeholder="mot-de-passe">
-        <button id="valid" type="button">Connexion</button>
-    </form>
-
-    <div id="liste"></div>
+    <header>
+        <div class="topnav">
+            <a class="titre">Random API</a>
+            <a class="active" href="">A propos</a>
+            <a href="">Profils</a>
+            <a href="">Catégories</a>
+            <a href="" class="acc">Acceuil</a>
+        </div>
+    </header>
+    <nav>
+        <div class="search">
+            <div class="search2">
+                <input type="search" placeholder="">
+                <button id="btn_search">Rechercher</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div id="liste"></div>
+    </main>
 
     <script src="main.js" type="module"></script>
 </body>

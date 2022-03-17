@@ -1,10 +1,14 @@
-export class loginModel {
-    constructor(gender, name, location, email, phone, cell) {
+class loginModel {
+    constructor(gender, name, nom, location, email, phone, cell, picture) {
         this.gender = gender;
         this.name = name;
-        this.location = location;
+        this.nom = nom;
+        this.locationCity = location;
         this.email = email;
         this.phone = phone;
         this.cell = cell;
+        this.picture = picture;
     }
 }
+
+export {loginModel};
